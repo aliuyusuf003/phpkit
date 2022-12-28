@@ -1,53 +1,56 @@
 <?php
+/**
+ * User: TheCodeholic
+ * Date: 10/11/2020
+ * Time: 10:05 AM
+ */
 
 namespace app;
 
 
-
-class Router{
-
+/**
+ * Class Router
+ *
+ * @author  Zura Sekhniashvili <zurasekhniashvili@gmail.com>
+ * @package app
+ */
+class Router
+{
     public array $getRoutes = [];
     public array $postRoutes = [];
-    public Database $db;
 
-    public function __construct()
+    public ?Database $database = null;
+
+    public function __construct(Database $database)
     {
-        $this->db = new Database();
+        $this->database = $database;
     }
 
     public function get($url, $fn)
     {
         $this->getRoutes[$url] = $fn;
-
     }
 
     public function post($url, $fn)
     {
         $this->postRoutes[$url] = $fn;
-
     }
+
     public function resolve()
     {
-        // echo '<pre>';
-        // var_dump($_SERVER);
-        // echo '</pre>';
-        
-        $currentUrl = $_SERVER['PATH_INFO'] ?? '/';
-        $method = $_SERVER['REQUEST_METHOD'];
+        $method = strtolower($_SERVER['REQUEST_METHOD']);
+        $url = $_SERVER['PATH_INFO'] ?? '/';
 
-        if($method === 'GET'){
-           
-            $fn = $this->getRoutes[$currentUrl] ?? null;           
-        
-        }else{
-            $fn = $this->postRoutes[$currentUrl] ?? null;       
+        if ($method === 'get') {
+            $fn = $this->getRoutes[$url] ?? null;
+        } else {
+            $fn = $this->postRoutes[$url] ?? null;
         }
-        if($fn){
-          call_user_func($fn,$this);
-
-        }else{
+        if (!$fn) {
             echo 'Page not found';
+            exit;
         }
+        echo call_user_func($fn, $this);
     }
 
     public function renderView($view, $params = [])
@@ -60,5 +63,4 @@ class Router{
         $content = ob_get_clean();
         include __DIR__."/views/_layout.php";
     }
-
 }

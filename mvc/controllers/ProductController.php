@@ -18,25 +18,28 @@ use app\Router;
  */
 class ProductController
 {
-    public static function index(Router $router)
+    public  static function index(Router $router)
     {
         $keyword = $_GET['search'] ?? '';
-        $products = $router->db->getProducts($keyword);
+        $products = $router->database->getProducts($keyword);
         $router->renderView('products/index', [
             'products' => $products,
             'keyword' => $keyword
         ]);
     }
 
-    public function create(Router $router)
+    public static function create(Router $router)
     {
         $productData = [
-            'image' => ''
+            'image' => '',
+            'title' => '',
+            'description' => '',
+            'imageFile' => ''
         ];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $productData['title'] = $_POST['title'];
             $productData['description'] = $_POST['description'];
-            $productData['price'] = $_POST['price'];
+            $productData['price'] = (float)$_POST['price'];
             $productData['imageFile'] = $_FILES['image'] ?? null;
 
             $product = new Product();
@@ -50,7 +53,7 @@ class ProductController
         ]);
     }
 
-    public function update(Router $router)
+    public static function update(Router $router)
     {
         $id = $_GET['id'] ?? null;
         if (!$id) {
@@ -77,7 +80,7 @@ class ProductController
         ]);
     }
 
-    public function delete(Router $router)
+    public static function delete(Router $router)
     {
         $id = $_POST['id'] ?? null;
         if (!$id) {

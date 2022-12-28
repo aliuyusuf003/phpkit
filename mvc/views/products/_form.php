@@ -1,11 +1,4 @@
-
-<?php //if (!empty($errors)): ?>
-<!--    <div class="alert alert-danger">-->
-<!--        --><?php //foreach ($errors as $error): ?>
-<!--            <div>--><?php //echo $error ?><!--</div>-->
-<!--        --><?php //endforeach; ?>
-<!--    </div>-->
-<?php //endif; ?>
+<a href="/" class="btn btn-sm btn-outline-success">Go back to products</a>
 
 <form method="post" enctype="multipart/form-data">
     <?php if ($product['image']): ?>
