@@ -9,3 +9,8 @@ function subtract($a, $b)
 {
     return $a - $b;
 }
+
+
+function showCompName($name){
+    return $name;
+}

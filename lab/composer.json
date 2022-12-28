@@ -1,0 +1,17 @@
+{
+    "name": "user/lab",
+    "autoload": {
+        "psr-4": {
+            "app\\": "./app"
+        }
+    },
+    "authors": [
+        {
+            "name": "Yusuf",
+            "email": "yusufgenius03@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.5"
+    }
+}

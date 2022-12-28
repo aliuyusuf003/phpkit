@@ -1,0 +1,15 @@
+CREATE TABLE `product_crud`.`products` (
+id int NOT NULL AUTO_INCREMENT ,
+    title varchar(512),
+    description  longtext,
+    image varchar(2048),
+    price decimal(10,2),
+createDate datetime,
+PRIMARY KEY (id)
+)
+ENGINE = InnoDB;
+
+
+ALTER TABLE product_crud.products
+modify column createDate DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP;
+ALTER TABLE products RENAME COLUMN createDate TO create_date;

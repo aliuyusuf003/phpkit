@@ -59,4 +59,4 @@ echo "5 - " . html_entity_decode(htmlentities($longText)) . '<br>' . PHP_EOL;
 echo "6 - " . htmlspecialchars($longText) . '<br>' . PHP_EOL;
 
 
-// https://www.php.net/manual/en/ref.strings.php
+// https://www.php.net/manual/en/ref.strings.php -->

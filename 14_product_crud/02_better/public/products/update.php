@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $statement->execute();
         header('Location: index.php');
     }
-
+    
 }
 
 ?>

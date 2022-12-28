@@ -7,7 +7,7 @@
 // 5. Create variable $companyName which can be accessed in footer.php
 
 // 7.
-$companyName = 'TraversyMedia';
+$companyName = 'Alijobs';
 ?>
 <!-- 6. Rename header.php to  show Fatal error-->
 <?php require "partials/header.php"; ?>

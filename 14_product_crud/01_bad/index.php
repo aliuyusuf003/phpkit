@@ -1,11 +1,17 @@
 <?php
 
-$pdo = new PDO('mysql:host=localhost;port=3306;dbname=products_crud', 'root', '');
+$pdo = new PDO('mysql:host=localhost;port=3306;dbname=product_crud', 'yusualiu', '');
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $statement = $pdo->prepare('SELECT * FROM products ORDER BY create_date DESC');
 $statement->execute();
+
 $products = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+// echo '<pre>';
+// var_dump($products);
+// echo '</pre>';
+// exit;
 ?>
 
 <!doctype html>
@@ -40,6 +46,8 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
     </thead>
     <tbody>
     <?php foreach ($products as $i => $product) { ?>
+        
+
         <tr>
             <th scope="row"><?php echo $i + 1 ?></th>
             <td>

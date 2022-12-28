@@ -8,7 +8,7 @@ if (!$id) {
     exit;
 }
 
-$pdo = new PDO('mysql:host=localhost;port=3306;dbname=products_crud', 'root', '');
+$pdo = new PDO('mysql:host=localhost;port=3306;dbname=product_crud', 'yusualiu', '');
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $statement = $pdo->prepare('SELECT * FROM products WHERE id = :id');
@@ -84,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
 <p>
-    <a href="index.php" class="btn btn-default">Back to products</a>
+    <a href="index.php" class="btn btn-sm btn-outline-primary">Back to products</a>
 </p>
 <h1>Update Product: <b><?php echo $product['title'] ?></b></h1>
 

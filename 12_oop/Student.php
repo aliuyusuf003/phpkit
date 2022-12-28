@@ -8,6 +8,10 @@ class Student extends Person
     public function __construct($name, $age, $stId)
     {
         $this->stId = $stId;
-        parent::__construct($name, $age, null);
+        parent::__construct($name, $age, null);  // this will prevent repeating properting settings for Students.
     }
+   
 }
+
+
+
