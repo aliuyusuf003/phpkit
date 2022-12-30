@@ -4,7 +4,7 @@ id int NOT NULL AUTO_INCREMENT ,
     description  longtext,
     image varchar(2048),
     price decimal(10,2),
-createDate datetime,
+create_date datetime,
 PRIMARY KEY (id)
 )
 ENGINE = InnoDB;

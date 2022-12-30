@@ -1,10 +1,19 @@
 <?php
 
 session_start();
-echo session_id();
+// echo session_id();
+
+// $_SESSION['name']  = 'Aliu';
+
+// echo '<pre>';
+// var_dump($_SESSION);
+// echo '</pre>';
+
 
 $_SESSION['page_count'] = $_SESSION['page_count'] ?? 0;
 $_SESSION['page_count']++;
+
+
 
 if ($_SESSION['page_count'] > 10){
     echo "Thank you for visiting our website 10 times";
